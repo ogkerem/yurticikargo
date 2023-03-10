@@ -1,0 +1,760 @@
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://yurticikargo.com.tr/WSExceptions/"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:tns="http://yurticikargo.com.tr/ShippingOrderDispatcherServices" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    name="KOPSWebServices" targetNamespace="http://yurticikargo.com.tr/ShippingOrderDispatcherServices">
+    <types>
+        <xs:schema xmlns:tns="http://yurticikargo.com.tr/WSExceptions/" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://yurticikargo.com.tr/WSExceptions/" version="1.0">
+            <xs:element name="YurticikargoWSException" type="tns:YurticikargoWSException" />
+            <xs:complexType name="YurticikargoWSException">
+                <xs:sequence>
+                    <xs:element name="errorCode" type="xs:int" />
+                    <xs:element minOccurs="0" name="errText" type="xs:string" />
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema xmlns:ns1="http://yurticikargo.com.tr/WSExceptions/"
+            xmlns:tns="http://yurticikargo.com.tr/ShippingOrderDispatcherServices"
+            xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://yurticikargo.com.tr/ShippingOrderDispatcherServices" version="1.0">
+            <xs:import namespace="http://yurticikargo.com.tr/WSExceptions/" />
+            <xs:element name="ShipmentDeliveryItemDetailVO" type="tns:ShipmentDeliveryItemDetailVO" />
+            <xs:element name="ShippingDeliveryItemDetailVO" nillable="true" type="xs:anyType" />
+            <xs:element name="ShippingOrderVO" type="tns:ShippingOrderVO" />
+            <xs:element name="XECod" type="tns:XECod" />
+            <xs:element name="XEComplementaryProduct" type="tns:XEComplementaryProduct" />
+            <xs:element name="XEDelivery" type="tns:XEDelivery" />
+            <xs:element name="XEDocCargo" type="tns:XEDocCargo" />
+            <xs:element name="XEDocCargoZplFormatData" type="tns:XEDocCargoZplFormatData" />
+            <xs:element name="XEDocument" type="tns:XEDocument" />
+            <xs:element name="XEDocumentResponse" type="tns:XEDocumentResponse" />
+            <xs:element name="XEReceiver" type="tns:XEReceiver" />
+            <xs:element name="XEReferenceKeys" type="tns:XEReferenceKeys" />
+            <xs:element name="XESender" type="tns:XESender" />
+            <xs:element name="XESpecialField" type="tns:XESpecialField" />
+            <xs:element name="YurticikargoWSException" nillable="true" type="ns1:YurticikargoWSException" />
+            <xs:element name="cancelReturnShipmentCode" type="tns:cancelReturnShipmentCode" />
+            <xs:element name="cancelReturnShipmentCodeResponse" type="tns:cancelReturnShipmentCodeResponse" />
+            <xs:element name="cancelShipment" type="tns:cancelShipment" />
+            <xs:element name="cancelShipmentResponse" type="tns:cancelShipmentResponse" />
+            <xs:element name="createShipment" type="tns:createShipment" />
+            <xs:element name="createShipmentDetail" type="tns:createShipmentDetail" />
+            <xs:element name="createShipmentDetailResponse" type="tns:createShipmentDetailResponse" />
+            <xs:element name="createShipmentResponse" type="tns:createShipmentResponse" />
+            <xs:element name="createShipmentWithDelivery" type="tns:createShipmentWithDelivery" />
+            <xs:element name="createShipmentWithDeliveryResponse" type="tns:createShipmentWithDeliveryResponse" />
+            <xs:element name="queryShipment" type="tns:queryShipment" />
+            <xs:element name="queryShipmentDetail" type="tns:queryShipmentDetail" />
+            <xs:element name="queryShipmentDetailResponse" type="tns:queryShipmentDetailResponse" />
+            <xs:element name="queryShipmentResponse" type="tns:queryShipmentResponse" />
+            <xs:element name="saveReturnShipmentCode" type="tns:saveReturnShipmentCode" />
+            <xs:element name="saveReturnShipmentCodeResponse" type="tns:saveReturnShipmentCodeResponse" />
+            <xs:complexType name="queryShipment">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="wsUserName" type="xs:string" />
+                    <xs:element minOccurs="0" name="wsPassword" type="xs:string" />
+                    <xs:element minOccurs="0" name="wsLanguage" type="xs:string" />
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="keys" type="xs:string" />
+                    <xs:element name="keyType" type="xs:int" />
+                    <xs:element name="addHistoricalData" type="xs:boolean" />
+                    <xs:element name="onlyTracking" type="xs:boolean" />
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="queryShipmentResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="ShippingDeliveryVO" type="tns:shippingDeliveryResultVO" />
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="shippingDeliveryResultVO">
+                <xs:complexContent>
+                    <xs:extension base="tns:extendedBaseResultVO">
+                        <xs:sequence>
+                            <xs:element name="count" type="xs:long" />
+                            <xs:element name="senderCustId" type="xs:long" />
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="shippingDeliveryDetailVO"
+                                nillable="true" type="tns:shippingDeliveryDetailVO" />
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="extendedBaseResultVO">
+                <xs:complexContent>
+                    <xs:extension base="tns:baseResultVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="errCode" type="xs:string" />
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="baseResultVO">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="outFlag" type="xs:string" />
+                    <xs:element minOccurs="0" name="outResult" type="xs:string" />
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="shippingDeliveryDetailVO">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="cargoKey" type="xs:string" />
+                    <xs:element minOccurs="0" name="errCode" type="xs:int" />
+                    <xs:element minOccurs="0" name="errMessage" type="xs:string" />
+                    <xs:element minOccurs="0" name="invoiceKey" type="xs:string" />
+                    <xs:element name="jobId" type="xs:long" />
+                    <xs:element minOccurs="0" name="operationCode" type="xs:int" />
+                    <xs:element minOccurs="0" name="operationMessage" type="xs:string" />
+                    <xs:element minOccurs="0" name="operationStatus" type="xs:string" />
+                    <xs:element minOccurs="0" name="shippingDeliveryItemDetailVO"
+                        type="tns:ShippingDeliveryItemDetailVO" />
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ShippingDeliveryItemDetailVO">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="cargoKey" type="xs:string" />
+                    <xs:element minOccurs="0" name="docId" type="xs:string" />
+                    <xs:element minOccurs="0" name="invoiceNumber" type="xs:string" />
+                    <xs:element minOccurs="0" name="docNumber" type="xs:string" />
+                    <xs:element minOccurs="0" name="waybillNo" type="xs:string" />
+                    <xs:element minOccurs="0" name="documentDebitId" type="xs:string" />
+                    <xs:element minOccurs="0" name="senderCustId" type="xs:string" />
+                    <xs:element minOccurs="0" name="senderCustName" type="xs:string" />
+                    <xs:element minOccurs="0" name="senderAddressTxt" type="xs:string" />
+                    <xs:element minOccurs="0" name="receiverCustId" type="xs:string" />
+                    <xs:element minOccurs="0" name="receiverCustName" type="xs:string" />
+                    <xs:element minOccurs="0" name="receiverAddressTxt" type="xs:string" />
+                    <xs:element minOccurs="0" name="documentDate" type="xs:string" />
+                    <xs:element minOccurs="0" name="documentTime" type="xs:string" />
+                    <xs:element minOccurs="0" name="documentDelFlag" type="xs:string" />
+                    <xs:element minOccurs="0" name="receiverInfo" type="xs:string" />
+                    <xs:element minOccurs="0" name="docType" type="xs:string" />
+                    <xs:element minOccurs="0" name="docTypeExplanation" type="xs:string" />
+                    <xs:element minOccurs="0" name="contractId" type="xs:string" />
+                    <xs:element minOccurs="0" name="trackingUrl" type="xs:string" />
+                    <xs:element minOccurs="0" name="cargoType" type="xs:string" />
+                    <xs:element minOccurs="0" name="cargoTypeExplanation" type="xs:string" />
+                    <xs:element minOccurs="0" name="pickupType" type="xs:string" />
+                    <xs:element minOccurs="0" name="pickupTypeExplanation" type="xs:string" />
+                    <xs:element minOccurs="0" name="deliveryType" type="xs:string" />
+                    <xs:element minOccurs="0" name="deliveryTypeExplanation" type="xs:string" />
+                    <xs:element minOccurs="0" name="deliveryDate" type="xs:string" />
+                    <xs:element minOccurs="0" name="deliveryTime" type="xs:string" />
+                    <xs:element minOccurs="0" name="totalPrice" type="xs:string" />
+                    <xs:element minOccurs="0" name="totalVat" type="xs:string" />
+                    <xs:element minOccurs="0" name="totalAmount" type="xs:string" />
+                    <xs:element minOccurs="0" name="product" type="xs:string" />
+                    <xs:element minOccurs="0" name="totalDesi" type="xs:string" />
+                    <xs:element minOccurs="0" name="totalKg" type="xs:string" />
+                    <xs:element minOccurs="0" name="totalDesiKg" type="xs:string" />
+                    <xs:element minOccurs="0" name="totalCargo" type="xs:string" />
+                    <xs:element minOccurs="0" name="arrivalUnitId" type="xs:string" />
+                    <xs:element minOccurs="0" name="arrivalUnitName" type="xs:string" />
+                    <xs:element minOccurs="0" name="departureUnitId" type="xs:string" />
+                    <xs:element minOccurs="0" name="departureUnitName" type="xs:string" />
+                    <xs:element minOccurs="0" name="arrivalTrCenterUnitId" type="xs:string" />
+                    <xs:element minOccurs="0" name="arrivalTrCenterName" type="xs:string" />
+                    <xs:element minOccurs="0" name="departureTrCenterUnitId" type="xs:string" />
+                    <xs:element minOccurs="0" name="departureTrCenterName" type="xs:string" />
+                    <xs:element minOccurs="0" name="deliveryUnitId" type="xs:string" />
+                    <xs:element minOccurs="0" name="deliveryUnitName" type="xs:string" />
+                    <xs:element minOccurs="0" name="deliveryUnitType" type="xs:string" />
+                    <xs:element minOccurs="0" name="deliveryUnitTypeExplanation" type="xs:string" />
+                    <xs:element minOccurs="0" name="cargoEventId" type="xs:string" />
+                    <xs:element minOccurs="0" name="cargoEventExplanation" type="xs:string" />
+                    <xs:element minOccurs="0" name="cargoReasonId" type="xs:string" />
+                    <xs:element minOccurs="0" name="cargoReasonExplanation" type="xs:string" />
+                    <xs:element minOccurs="0" name="documentEventId" type="xs:string" />
+                    <xs:element minOccurs="0" name="documentReasonId" type="xs:string" />
+                    <xs:element minOccurs="0" name="documentEventExplanation" type="xs:string" />
+                    <xs:element minOccurs="0" name="documentReasonExplanation" type="xs:string" />
+                    <xs:element minOccurs="0" name="delInfoDeliveryFlag" type="xs:string" />
+                    <xs:element minOccurs="0" name="delInfoDelUnitId" type="xs:string" />
+                    <xs:element minOccurs="0" name="delEmpName" type="xs:string" />
+                    <xs:element minOccurs="0" name="delEmpId" type="xs:string" />
+                    <xs:element minOccurs="0" name="rejectStatus" type="xs:string" />
+                    <xs:element minOccurs="0" name="rejectStatusExplanation" type="xs:string" />
+                    <xs:element minOccurs="0" name="rejectDescription" type="xs:string" />
+                    <xs:element minOccurs="0" name="rejectReasonExplanation" type="xs:string" />
+                    <xs:element minOccurs="0" name="returnDocId" type="xs:string" />
+                    <xs:element minOccurs="0" name="returnDocumentDate" type="xs:string" />
+                    <xs:element minOccurs="0" name="returnDeliveryDate" type="xs:string" />
+                    <xs:element minOccurs="0" name="returnStatus" type="xs:string" />
+                    <xs:element minOccurs="0" name="returnStatusExplanation" type="xs:string" />
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="invDocFieldVOArray" nillable="true"
+                        type="tns:InvDocFieldVO" />
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="invDocCargoVOArray" nillable="true"
+                        type="tns:InvDocCargoVO" />
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="InvDocFieldVO">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="docId" type="xs:string" />
+                    <xs:element minOccurs="0" name="fieldName" type="xs:string" />
+                    <xs:element minOccurs="0" name="fieldNameExplanation" type="xs:string" />
+                    <xs:element minOccurs="0" name="fieldValue" type="xs:string" />
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="InvDocCargoVO">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="unitId" type="xs:string" />
+                    <xs:element minOccurs="0" name="unitName" type="xs:string" />
+                    <xs:element minOccurs="0" name="eventId" type="xs:string" />
+                    <xs:element minOccurs="0" name="eventName" type="xs:string" />
+                    <xs:element minOccurs="0" name="reasonId" type="xs:string" />
+                    <xs:element minOccurs="0" name="reasonName" type="xs:string" />
+                    <xs:element minOccurs="0" name="eventDate" type="xs:string" />
+                    <xs:element minOccurs="0" name="eventTime" type="xs:string" />
+                    <xs:element minOccurs="0" name="cityName" type="xs:string" />
+                    <xs:element minOccurs="0" name="townName" type="xs:string" />
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="createShipment">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="wsUserName" type="xs:string" />
+                    <xs:element minOccurs="0" name="wsPassword" type="xs:string" />
+                    <xs:element minOccurs="0" name="userLanguage" type="xs:string" />
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="ShippingOrderVO" type="tns:ShippingOrderVO" />
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ShippingOrderVO">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="cargoKey" type="xs:string" />
+                    <xs:element minOccurs="0" name="invoiceKey" type="xs:string" />
+                    <xs:element minOccurs="0" name="receiverCustName" type="xs:string" />
+                    <xs:element minOccurs="0" name="receiverAddress" type="xs:string" />
+                    <xs:element minOccurs="0" name="cityName" type="xs:string" />
+                    <xs:element minOccurs="0" name="townName" type="xs:string" />
+                    <xs:element minOccurs="0" name="receiverPhone1" type="xs:string" />
+                    <xs:element minOccurs="0" name="receiverPhone2" type="xs:string" />
+                    <xs:element minOccurs="0" name="receiverPhone3" type="xs:string" />
+                    <xs:element minOccurs="0" name="emailAddress" type="xs:string" />
+                    <xs:element name="taxOfficeId" type="xs:long" />
+                    <xs:element minOccurs="0" name="taxNumber" type="xs:string" />
+                    <xs:element minOccurs="0" name="taxOfficeName" type="xs:string" />
+                    <xs:element minOccurs="0" name="desi" type="xs:double" />
+                    <xs:element minOccurs="0" name="kg" type="xs:double" />
+                    <xs:element name="cargoCount" type="xs:int" />
+                    <xs:element minOccurs="0" name="waybillNo" type="xs:string" />
+                    <xs:element minOccurs="0" name="specialField1" type="xs:string" />
+                    <xs:element minOccurs="0" name="specialField2" type="xs:string" />
+                    <xs:element minOccurs="0" name="specialField3" type="xs:string" />
+                    <xs:element minOccurs="0" name="ttInvoiceAmount" type="xs:double" />
+                    <xs:element name="ttDocumentId" type="xs:long" />
+                    <xs:element minOccurs="0" name="ttCollectionType" type="xs:string" />
+                    <xs:element minOccurs="0" name="ttDocumentSaveType" type="xs:string" />
+                    <xs:element name="dcSelectedCredit" type="xs:long" />
+                    <xs:element name="dcCreditRule" type="xs:long" />
+                    <xs:element minOccurs="0" name="description" type="xs:string" />
+                    <xs:element minOccurs="0" name="orgGeoCode" type="xs:string" />
+                    <xs:element minOccurs="0" name="privilegeOrder" type="xs:string" />
+                    <xs:element minOccurs="0" name="custProdId" type="xs:string" />
+                    <xs:element minOccurs="0" name="orgReceiverCustId" type="xs:string" />
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="createShipmentResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="ShippingOrderResultVO" type="tns:shippingOrderResultVO" />
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="shippingOrderResultVO">
+                <xs:complexContent>
+                    <xs:extension base="tns:extendedBaseResultVO">
+                        <xs:sequence>
+                            <xs:element name="count" type="xs:long" />
+                            <xs:element name="jobId" type="xs:long" />
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="shippingOrderDetailVO" nillable="true"
+                                type="tns:shippingOrderDetailVO" />
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="shippingOrderDetailVO">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="cargoKey" type="xs:string" />
+                    <xs:element minOccurs="0" name="errCode" type="xs:int" />
+                    <xs:element minOccurs="0" name="errMessage" type="xs:string" />
+                    <xs:element minOccurs="0" name="invoiceKey" type="xs:string" />
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="cancelShipment">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="wsUserName" type="xs:string" />
+                    <xs:element minOccurs="0" name="wsPassword" type="xs:string" />
+                    <xs:element minOccurs="0" name="userLanguage" type="xs:string" />
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="cargoKeys" type="xs:string" />
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="cancelShipmentResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="ShippingOrderResultVO" type="tns:shippingCancelResultVO" />
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="shippingCancelResultVO">
+                <xs:complexContent>
+                    <xs:extension base="tns:extendedBaseResultVO">
+                        <xs:sequence>
+                            <xs:element name="count" type="xs:long" />
+                            <xs:element name="senderCustId" type="xs:long" />
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="shippingCancelDetailVO"
+                                nillable="true" type="tns:shippingCancelDetailVO" />
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="shippingCancelDetailVO">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="cargoKey" type="xs:string" />
+                    <xs:element name="docId" type="xs:long" />
+                    <xs:element minOccurs="0" name="errCode" type="xs:int" />
+                    <xs:element minOccurs="0" name="errMessage" type="xs:string" />
+                    <xs:element minOccurs="0" name="invoiceKey" type="xs:string" />
+                    <xs:element name="jobId" type="xs:long" />
+                    <xs:element minOccurs="0" name="operationCode" type="xs:int" />
+                    <xs:element minOccurs="0" name="operationMessage" type="xs:string" />
+                    <xs:element minOccurs="0" name="operationStatus" type="xs:string" />
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="queryShipmentDetail">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="wsUserName" type="xs:string" />
+                    <xs:element minOccurs="0" name="wsPassword" type="xs:string" />
+                    <xs:element minOccurs="0" name="wsLanguage" type="xs:string" />
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="keys" type="xs:string" />
+                    <xs:element name="keyType" type="xs:int" />
+                    <xs:element name="addHistoricalData" type="xs:boolean" />
+                    <xs:element name="onlyTracking" type="xs:boolean" />
+                    <xs:element name="jsonData" type="xs:boolean" />
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="queryShipmentDetailResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="ShipmentDeliveryResultVO" type="tns:shipmentDeliveryResultVO" />
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="shipmentDeliveryResultVO">
+                <xs:complexContent>
+                    <xs:extension base="tns:extendedBaseResultVO">
+                        <xs:sequence>
+                            <xs:element name="count" type="xs:long" />
+                            <xs:element minOccurs="0" name="deliveryResultData" type="xs:string" />
+                            <xs:element name="senderCustId" type="xs:long" />
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="shipmentDeliveryDetailVO"
+                                nillable="true" type="tns:shipmentDeliveryDetailVO" />
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="shipmentDeliveryDetailVO">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="cargoKey" type="xs:string" />
+                    <xs:element minOccurs="0" name="errCode" type="xs:int" />
+                    <xs:element minOccurs="0" name="errMessage" type="xs:string" />
+                    <xs:element minOccurs="0" name="invoiceKey" type="xs:string" />
+                    <xs:element name="jobId" type="xs:long" />
+                    <xs:element minOccurs="0" name="operationCode" type="xs:int" />
+                    <xs:element minOccurs="0" name="operationMessage" type="xs:string" />
+                    <xs:element minOccurs="0" name="operationStatus" type="xs:string" />
+                    <xs:element minOccurs="0" name="shipmentDeliveryItemDetailVO"
+                        type="tns:ShipmentDeliveryItemDetailVO" />
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ShipmentDeliveryItemDetailVO">
+                <xs:complexContent>
+                    <xs:extension base="tns:ShippingDeliveryItemDetailVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="estimatedDeliveryDate" type="xs:string" />
+                            <xs:element minOccurs="0" name="estimatedDeliveryTime" type="xs:string" />
+                            <xs:element minOccurs="0" name="perfCFlag" type="xs:string" />
+                            <xs:element minOccurs="0" name="delivDurationWorkDay" type="xs:string" />
+                            <xs:element minOccurs="0" name="delivDuration" type="xs:string" />
+                            <xs:element minOccurs="0" name="perfLateCEvent" type="xs:string" />
+                            <xs:element minOccurs="0" name="perfLateCReason" type="xs:string" />
+                            <xs:element minOccurs="0" name="receiverPhone" type="xs:string" />
+                            <xs:element minOccurs="0" name="receiverGsm" type="xs:string" />
+                            <xs:element minOccurs="0" name="shipmentDistance" type="xs:string" />
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="saveReturnShipmentCode">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="wsUserName" type="xs:string" />
+                    <xs:element minOccurs="0" name="wsPassword" type="xs:string" />
+                    <xs:element minOccurs="0" name="wsLanguage" type="xs:string" />
+                    <xs:element minOccurs="0" name="fieldName" type="xs:string" />
+                    <xs:element minOccurs="0" name="returnCode" type="xs:string" />
+                    <xs:element minOccurs="0" name="startDate" type="xs:string" />
+                    <xs:element minOccurs="0" name="endDate" type="xs:string" />
+                    <xs:element name="maxCount" type="xs:int" />
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="saveReturnShipmentCodeResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="ExtendedBaseResultVO" type="tns:extendedBaseResultVO" />
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="cancelReturnShipmentCode">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="wsUserName" type="xs:string" />
+                    <xs:element minOccurs="0" name="wsPassword" type="xs:string" />
+                    <xs:element minOccurs="0" name="wsLanguage" type="xs:string" />
+                    <xs:element minOccurs="0" name="fieldName" type="xs:string" />
+                    <xs:element minOccurs="0" name="returnCode" type="xs:string" />
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="cancelReturnShipmentCodeResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="ExtendedBaseResultVO" type="tns:extendedBaseResultVO" />
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="createShipmentWithDelivery">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="wsUserName" type="xs:string" />
+                    <xs:element minOccurs="0" name="wsPassword" type="xs:string" />
+                    <xs:element minOccurs="0" name="wsUserLanguage" type="xs:string" />
+                    <xs:element minOccurs="0" name="XEDocument" type="tns:XEDocument" />
+                    <xs:element minOccurs="0" name="XEReferenceKeys" type="tns:XEReferenceKeys" />
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="XEComplementaryProduct"
+                        type="tns:XEComplementaryProduct" />
+                    <xs:element minOccurs="0" name="XECod" type="tns:XECod" />
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="XESpecialFieldArray"
+                        type="tns:XESpecialField" />
+                    <xs:element minOccurs="0" name="XESender" type="tns:XESender" />
+                    <xs:element minOccurs="0" name="XEReceiver" type="tns:XEReceiver" />
+                    <xs:element minOccurs="0" name="XEDelivery" type="tns:XEDelivery" />
+                    <xs:element minOccurs="0" name="XEDocCargoZplFormatData" type="tns:XEDocCargoZplFormatData" />
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="XEDocument">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="mainProdCode" type="xs:string" />
+                    <xs:element name="totalCargoCount" type="xs:long" />
+                    <xs:element name="totalDesi" type="xs:double" />
+                    <xs:element name="totalWeight" type="xs:double" />
+                    <xs:element minOccurs="0" name="personGiver" type="xs:string" />
+                    <xs:element minOccurs="0" name="shipmentContent" type="xs:string" />
+                    <xs:element minOccurs="0" name="description" type="xs:string" />
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="XEReferenceKeys">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="cargoKey" type="xs:string" />
+                    <xs:element minOccurs="0" name="invoiceKey" type="xs:string" />
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="XEComplementaryProduct">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="complementaryProductCode" type="xs:string" />
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="XECod">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="ttDocumentId" type="xs:string" />
+                    <xs:element name="ttInvoiceAmount" type="xs:double" />
+                    <xs:element minOccurs="0" name="ttCollectionType" type="xs:string" />
+                    <xs:element minOccurs="0" name="ttDocumentSaveType" type="xs:string" />
+                    <xs:element name="dcSelectedCredit" type="xs:long" />
+                    <xs:element minOccurs="0" name="dcCreditRule" type="xs:string" />
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="XESpecialField">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="specialFieldName" type="xs:string" />
+                    <xs:element minOccurs="0" name="specialFieldValue" type="xs:string" />
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="XESender">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="senderCustId" type="xs:string" />
+                    <xs:element minOccurs="0" name="senderAddressId" type="xs:string" />
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="XEReceiver">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="custName" type="xs:string" />
+                    <xs:element minOccurs="0" name="address" type="xs:string" />
+                    <xs:element minOccurs="0" name="cityId" type="xs:string" />
+                    <xs:element minOccurs="0" name="townName" type="xs:string" />
+                    <xs:element minOccurs="0" name="phone" type="xs:string" />
+                    <xs:element minOccurs="0" name="mobilePhone" type="xs:string" />
+                    <xs:element minOccurs="0" name="emailAddress" type="xs:string" />
+                    <xs:element minOccurs="0" name="custReferenceId" type="xs:string" />
+                    <xs:element minOccurs="0" name="addressReferenceId" type="xs:string" />
+                    <xs:element minOccurs="0" name="additionalInfo" type="xs:string" />
+                    <xs:element minOccurs="0" name="taxNo" type="xs:string" />
+                    <xs:element minOccurs="0" name="tckn" type="xs:string" />
+                    <xs:element minOccurs="0" name="countryTaxOfficeId" type="xs:string" />
+                    <xs:element minOccurs="0" name="latitude" type="xs:string" />
+                    <xs:element minOccurs="0" name="longitude" type="xs:string" />
+                    <xs:element minOccurs="0" name="receiverCustId" type="xs:string" />
+                    <xs:element minOccurs="0" name="receiverAddressId" type="xs:string" />
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="XEDelivery">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="ktnId" type="xs:string" />
+                    <xs:element minOccurs="0" name="deliveryType" type="xs:string" />
+                    <xs:element minOccurs="0" name="deliveryMobilePhone" type="xs:string" />
+                    <xs:element minOccurs="0" name="ktnTranId" type="xs:string" />
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="XEDocCargoZplFormatData">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="docCargoZplDataFormat" type="xs:string" />
+                    <xs:element minOccurs="0" name="docCargoLabelType" type="xs:string" />
+                    <xs:element minOccurs="0" name="zplType" type="xs:string" />
+                    <xs:element minOccurs="0" name="encoding" type="xs:string" />
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="createShipmentWithDeliveryResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="XEDocumentResponse" type="tns:XEDocumentResponse" />
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="XEDocumentResponse">
+                <xs:complexContent>
+                    <xs:extension base="tns:extendedBaseResultVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="transactionChannel" type="xs:string" />
+                            <xs:element minOccurs="0" name="projectId" type="xs:string" />
+                            <xs:element minOccurs="0" name="jobId" type="xs:string" />
+                            <xs:element minOccurs="0" name="docId" type="xs:string" />
+                            <xs:element minOccurs="0" name="docNumber" type="xs:string" />
+                            <xs:element minOccurs="0" name="tempListOrderSeq" type="xs:string" />
+                            <xs:element minOccurs="0" name="routingFlag" type="xs:string" />
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="docFieldArray"
+                                type="tns:XESpecialField" />
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="docCargoV2Array"
+                                type="tns:XEDocCargo" />
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="XEDocCargo">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="barcodeStringValue" type="xs:string" />
+                    <xs:element minOccurs="0" name="docCargoZpl" type="xs:string" />
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="createShipmentDetail">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="wsUserName" type="xs:string" />
+                    <xs:element minOccurs="0" name="wsPassword" type="xs:string" />
+                    <xs:element minOccurs="0" name="userLanguage" type="xs:string" />
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="ShippingOrderVO"
+                        type="tns:shippingOrderCreateVO" />
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="shippingOrderCreateVO">
+                <xs:complexContent>
+                    <xs:extension base="tns:ShippingOrderVO">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="orderData" type="xs:string" />
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="createShipmentDetailResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="ShippingOrderResultVO" type="tns:shippingOrderResultVO" />
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+    </types>
+    <message name="ShippingOrderDispatcherServices_createShipmentDetail">
+        <part element="tns:createShipmentDetail" name="createShipmentDetail" />
+    </message>
+    <message name="ShippingOrderDispatcherServices_createShipmentWithDeliveryResponse">
+        <part element="tns:createShipmentWithDeliveryResponse" name="createShipmentWithDeliveryResponse" />
+    </message>
+    <message name="ShippingOrderDispatcherServices_saveReturnShipmentCode">
+        <part element="tns:saveReturnShipmentCode" name="saveReturnShipmentCode" />
+    </message>
+    <message name="ShippingOrderDispatcherServices_cancelReturnShipmentCode">
+        <part element="tns:cancelReturnShipmentCode" name="cancelReturnShipmentCode" />
+    </message>
+    <message name="YurticikargoWSException">
+        <part element="tns:YurticikargoWSException" name="YurticikargoWSException" />
+    </message>
+    <message name="ShippingOrderDispatcherServices_createShipmentResponse">
+        <part element="tns:createShipmentResponse" name="createShipmentResponse" />
+    </message>
+    <message name="ShippingOrderDispatcherServices_queryShipmentDetailResponse">
+        <part element="tns:queryShipmentDetailResponse" name="queryShipmentDetailResponse" />
+    </message>
+    <message name="ShippingOrderDispatcherServices_cancelShipmentResponse">
+        <part element="tns:cancelShipmentResponse" name="cancelShipmentResponse" />
+    </message>
+    <message name="ShippingOrderDispatcherServices_createShipment">
+        <part element="tns:createShipment" name="createShipment" />
+    </message>
+    <message name="ShippingOrderDispatcherServices_queryShipmentDetail">
+        <part element="tns:queryShipmentDetail" name="queryShipmentDetail" />
+    </message>
+    <message name="ShippingOrderDispatcherServices_saveReturnShipmentCodeResponse">
+        <part element="tns:saveReturnShipmentCodeResponse" name="saveReturnShipmentCodeResponse" />
+    </message>
+    <message name="ShippingOrderDispatcherServices_queryShipmentResponse">
+        <part element="tns:queryShipmentResponse" name="queryShipmentResponse" />
+    </message>
+    <message name="ShippingOrderDispatcherServices_createShipmentWithDelivery">
+        <part element="tns:createShipmentWithDelivery" name="createShipmentWithDelivery" />
+    </message>
+    <message name="ShippingOrderDispatcherServices_cancelShipment">
+        <part element="tns:cancelShipment" name="cancelShipment" />
+    </message>
+    <message name="ShippingOrderDispatcherServices_cancelReturnShipmentCodeResponse">
+        <part element="tns:cancelReturnShipmentCodeResponse" name="cancelReturnShipmentCodeResponse" />
+    </message>
+    <message name="ShippingOrderDispatcherServices_createShipmentDetailResponse">
+        <part element="tns:createShipmentDetailResponse" name="createShipmentDetailResponse" />
+    </message>
+    <message name="ShippingOrderDispatcherServices_queryShipment">
+        <part element="tns:queryShipment" name="queryShipment" />
+    </message>
+    <portType name="ShippingOrderDispatcherServices">
+        <operation name="cancelReturnShipmentCode" parameterOrder="cancelReturnShipmentCode">
+            <input message="tns:ShippingOrderDispatcherServices_cancelReturnShipmentCode" />
+            <output message="tns:ShippingOrderDispatcherServices_cancelReturnShipmentCodeResponse" />
+            <fault message="tns:YurticikargoWSException" name="YurticikargoWSException" />
+        </operation>
+        <operation name="cancelShipment" parameterOrder="cancelShipment">
+            <input message="tns:ShippingOrderDispatcherServices_cancelShipment" />
+            <output message="tns:ShippingOrderDispatcherServices_cancelShipmentResponse" />
+            <fault message="tns:YurticikargoWSException" name="YurticikargoWSException" />
+        </operation>
+        <operation name="createShipment" parameterOrder="createShipment">
+            <input message="tns:ShippingOrderDispatcherServices_createShipment" />
+            <output message="tns:ShippingOrderDispatcherServices_createShipmentResponse" />
+            <fault message="tns:YurticikargoWSException" name="YurticikargoWSException" />
+        </operation>
+        <operation name="createShipmentDetail" parameterOrder="createShipmentDetail">
+            <input message="tns:ShippingOrderDispatcherServices_createShipmentDetail" />
+            <output message="tns:ShippingOrderDispatcherServices_createShipmentDetailResponse" />
+            <fault message="tns:YurticikargoWSException" name="YurticikargoWSException" />
+        </operation>
+        <operation name="createShipmentWithDelivery" parameterOrder="createShipmentWithDelivery">
+            <input message="tns:ShippingOrderDispatcherServices_createShipmentWithDelivery" />
+            <output message="tns:ShippingOrderDispatcherServices_createShipmentWithDeliveryResponse" />
+            <fault message="tns:YurticikargoWSException" name="YurticikargoWSException" />
+        </operation>
+        <operation name="queryShipment" parameterOrder="queryShipment">
+            <input message="tns:ShippingOrderDispatcherServices_queryShipment" />
+            <output message="tns:ShippingOrderDispatcherServices_queryShipmentResponse" />
+            <fault message="tns:YurticikargoWSException" name="YurticikargoWSException" />
+        </operation>
+        <operation name="queryShipmentDetail" parameterOrder="queryShipmentDetail">
+            <input message="tns:ShippingOrderDispatcherServices_queryShipmentDetail" />
+            <output message="tns:ShippingOrderDispatcherServices_queryShipmentDetailResponse" />
+            <fault message="tns:YurticikargoWSException" name="YurticikargoWSException" />
+        </operation>
+        <operation name="saveReturnShipmentCode" parameterOrder="saveReturnShipmentCode">
+            <input message="tns:ShippingOrderDispatcherServices_saveReturnShipmentCode" />
+            <output message="tns:ShippingOrderDispatcherServices_saveReturnShipmentCodeResponse" />
+            <fault message="tns:YurticikargoWSException" name="YurticikargoWSException" />
+        </operation>
+    </portType>
+    <binding name="ShippingOrderDispatcherServicesBinding" type="tns:ShippingOrderDispatcherServices">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+        <operation name="cancelReturnShipmentCode">
+            <soap:operation soapAction="" />
+            <input>
+            <soap:body use="literal" />
+            </input>
+            <output>
+                <soap:body use="literal" />
+            </output>
+            <fault name="YurticikargoWSException">
+                <soap:fault name="YurticikargoWSException" use="literal" />
+            </fault>
+        </operation>
+        <operation name="cancelShipment">
+            <soap:operation soapAction="" />
+            <input>
+            <soap:body use="literal" />
+            </input>
+            <output>
+                <soap:body use="literal" />
+            </output>
+            <fault name="YurticikargoWSException">
+                <soap:fault name="YurticikargoWSException" use="literal" />
+            </fault>
+        </operation>
+        <operation name="createShipment">
+            <soap:operation soapAction="" />
+            <input>
+            <soap:body use="literal" />
+            </input>
+            <output>
+                <soap:body use="literal" />
+            </output>
+            <fault name="YurticikargoWSException">
+                <soap:fault name="YurticikargoWSException" use="literal" />
+            </fault>
+        </operation>
+        <operation name="createShipmentDetail">
+            <soap:operation soapAction="" />
+            <input>
+            <soap:body use="literal" />
+            </input>
+            <output>
+                <soap:body use="literal" />
+            </output>
+            <fault name="YurticikargoWSException">
+                <soap:fault name="YurticikargoWSException" use="literal" />
+            </fault>
+        </operation>
+        <operation name="createShipmentWithDelivery">
+            <soap:operation soapAction="" />
+            <input>
+            <soap:body use="literal" />
+            </input>
+            <output>
+                <soap:body use="literal" />
+            </output>
+            <fault name="YurticikargoWSException">
+                <soap:fault name="YurticikargoWSException" use="literal" />
+            </fault>
+        </operation>
+        <operation name="queryShipment">
+            <soap:operation soapAction="" />
+            <input>
+            <soap:body use="literal" />
+            </input>
+            <output>
+                <soap:body use="literal" />
+            </output>
+            <fault name="YurticikargoWSException">
+                <soap:fault name="YurticikargoWSException" use="literal" />
+            </fault>
+        </operation>
+        <operation name="queryShipmentDetail">
+            <soap:operation soapAction="" />
+            <input>
+            <soap:body use="literal" />
+            </input>
+            <output>
+                <soap:body use="literal" />
+            </output>
+            <fault name="YurticikargoWSException">
+                <soap:fault name="YurticikargoWSException" use="literal" />
+            </fault>
+        </operation>
+        <operation name="saveReturnShipmentCode">
+            <soap:operation soapAction="" />
+            <input>
+            <soap:body use="literal" />
+            </input>
+            <output>
+                <soap:body use="literal" />
+            </output>
+            <fault name="YurticikargoWSException">
+                <soap:fault name="YurticikargoWSException" use="literal" />
+            </fault>
+        </operation>
+    </binding>
+    <service name="KOPSWebServices">
+        <port binding="tns:ShippingOrderDispatcherServicesBinding" name="ShippingOrderDispatcherServicesPort">
+            <soap:address
+                location="http://testwebservices.yurticikargo.com:9090/KOPSWebServices/ShippingOrderDispatcherServices" />
+        </port>
+    </service>
+</definitions>

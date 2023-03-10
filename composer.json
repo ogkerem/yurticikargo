@@ -1,0 +1,5 @@
+{
+    "require": {
+        "smberg/yurtici-kargo": "^1.0"
+    }
+}

@@ -1,0 +1,49 @@
+{
+    "packages": [
+        {
+            "name": "smberg/yurtici-kargo",
+            "version": "1.0.1",
+            "version_normalized": "1.0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/smberg/yurtici-kargo-php.git",
+                "reference": "f0a1a9f6ca138161f2cdfca088d68a1107cf56a1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/smberg/yurtici-kargo-php/zipball/f0a1a9f6ca138161f2cdfca088d68a1107cf56a1",
+                "reference": "f0a1a9f6ca138161f2cdfca088d68a1107cf56a1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "time": "2021-03-17T18:47:21+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "YurticiKargo\\": "src/YurticiKargo/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Berkay Gumustekin",
+                    "email": "contact@berkaygumustekin.com.tr"
+                }
+            ],
+            "description": "Yurtici Kargo entegrasyonu",
+            "support": {
+                "issues": "https://github.com/smberg/yurtici-kargo-php/issues",
+                "source": "https://github.com/smberg/yurtici-kargo-php/tree/1.0.1"
+            },
+            "install-path": "../smberg/yurtici-kargo"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}
